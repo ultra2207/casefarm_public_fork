@@ -1,2 +1,2 @@
 # CaseFarm
-CaseFarm using FarmLabs.
+CaseFarm public repo.

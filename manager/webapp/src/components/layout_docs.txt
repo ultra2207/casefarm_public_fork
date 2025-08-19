@@ -1,0 +1,167 @@
+## Using DashboardLayout and PageHeader Components
+
+### DashboardLayout Component
+
+The `DashboardLayout` component serves as the main container for dashboard pages, providing consistent structure, navigation, and styling.
+
+#### Import
+```typescript
+import { DashboardLayout } from "@/components/dashboardlayout";
+```
+
+#### Props
+- `children`: React nodes to be rendered within the layout (required)
+- `className?`: Optional additional CSS classes
+
+#### Basic Usage
+```tsx
+import { DashboardLayout } from "@/components/dashboardlayout";
+
+export default function YourPage() {
+  return (
+    
+      {/* Your page content goes here */}
+      Dashboard Content
+    
+  );
+}
+```
+
+### PageHeader Component
+
+The `PageHeader` component displays the page title and manages notifications at the top of dashboard pages.
+
+#### Import
+```typescript
+import { PageHeader } from "@/components/pageheader";
+```
+
+#### Props
+```typescript
+interface PageHeaderProps {
+  title: string;                      // Page title to display
+  notifications: Notification[];      // Array of notification objects
+  unreadNotifications: number;        // Count of unread notifications
+  onMarkAllRead: () => void;          // Handler for marking all notifications as read
+}
+
+interface Notification {
+  id: number | string;                // Unique identifier
+  title: string;                      // Notification title
+  message: string;                    // Notification message content
+  time: string;                       // Time string (e.g., "12:45")
+  type: 'info' | 'success' | 'warning' | 'error';  // Notification type for styling
+  read: boolean;                      // Whether notification has been read
+}
+```
+
+#### Basic Usage
+```tsx
+import { useState } from 'react';
+import { PageHeader } from "@/components/pageheader";
+
+// Sample initial notifications
+const initialNotifications = [
+  { 
+    id: 1, 
+    title: 'Low Balance Warning', 
+    message: 'Account is running low on funds',
+    time: '12:19', 
+    type: 'warning', 
+    read: false 
+  },
+  { 
+    id: 2, 
+    title: 'Update Complete', 
+    message: 'System updated successfully',
+    time: '11:45', 
+    type: 'success', 
+    read: false 
+  }
+];
+
+export default function YourPage() {
+  // State for notifications
+  const [notifications, setNotifications] = useState(initialNotifications);
+  const [unreadNotifications, setUnreadNotifications] = useState(
+    initialNotifications.filter(notification => !notification.read).length
+  );
+
+  // Handle marking all notifications as read
+  const handleMarkAllRead = () => {
+    const updatedNotifications = notifications.map(notification => ({
+      ...notification,
+      read: true
+    }));
+    setNotifications(updatedNotifications);
+    setUnreadNotifications(0);
+  };
+
+  return (
+    
+  );
+}
+```
+
+### Combined Usage Pattern
+
+The most common pattern is to use both components together, with PageHeader as the first child of DashboardLayout:
+
+```tsx
+import { useState } from 'react';
+import { DashboardLayout } from "@/components/dashboardlayout";
+import { PageHeader } from "@/components/pageheader";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+// Sample notifications
+const initialNotifications = [
+  { id: 1, title: 'Alert', message: 'System alert message', time: '12:19', type: 'warning', read: false },
+  { id: 2, title: 'Success', message: 'Operation completed', time: '11:45', type: 'success', read: false },
+];
+
+export default function YourDashboardPage() {
+  // State for notifications
+  const [notifications, setNotifications] = useState(initialNotifications);
+  const [unreadNotifications, setUnreadNotifications] = useState(
+    initialNotifications.filter(notification => !notification.read).length
+  );
+
+  // Handle marking all notifications as read
+  const handleMarkAllRead = () => {
+    const updatedNotifications = notifications.map(notification => ({
+      ...notification,
+      read: true
+    }));
+    setNotifications(updatedNotifications);
+    setUnreadNotifications(0);
+  };
+
+  return (
+    
+      
+      
+      {/* Main content */}
+      
+        
+          Main Content
+        
+        
+          Your dashboard content goes here
+        
+      
+    
+  );
+}
+```
+
+### Best Practices
+
+1. **Page Structure**: Always use DashboardLayout as the root component of your dashboard pages
+2. **Header Placement**: Place PageHeader as the first child of DashboardLayout
+3. **Notification Management**: 
+   - Initialize notifications with useState
+   - Calculate unreadNotifications using filter
+   - Implement handleMarkAllRead to update both state variables
+4. **Content Organization**: Place your main content after the PageHeader component
+
+This structure ensures consistent layout, navigation, and notification handling across your dashboard application.

@@ -1,0 +1,59 @@
+# Global Constants
+USE_PROXIES: True
+ROOT_DIR: "C:/Users/Sivasai/Documents/GitHub/CaseFarm"
+LOGGING_DIR: "C:/Users/Sivasai/Documents/GitHub/CaseFarm/utils/cache/logs"
+DATABASE_DIR: "C:/Users/Sivasai/Documents/GitHub/CaseFarm/database/db"
+COOKIE_CACHE_DIR: "C:/Users/Sivasai/Documents/GitHub/CaseFarm/utils/cache/cookies"
+STEAM_API_CALL_MAX_RETRIES: 3
+
+# Updating prices within an account semaphore
+PRICE_SEMAPHORE: 5
+
+# Scheduler Constants
+DEFAULT_SCHEDULE_GENERATION_TIME: "7 PM"
+
+# Steam Items Lister Constants
+STEAM_ITEMS_LISTER_MULTIPLIER: 1 # Multiplier for the price to sell at compared to best buy order, set to 10 for testing or 1 for regular operations
+MAX_CLEANUP_ATTEMPTS: 8 # Fixed: changed colon to equals sign, increased cleanup time to account for stickersthat take forever to sell
+INITIAL_CLEANUP_PRICE_MULTIPLIER: 0.99
+CLEANUP_PRICE_DECREMENT: 0.015
+ACCOUNT_INVENTORY_SEMAPHORE_STEAM_ITEMS: 10 # Renamed to avoid duplicate
+MAX_ITEMS_LIMIT: 0 # Set to 0 for no limit
+MIN_SELLING_TIME: 30 # Minimum wait time for first cleanup attempt in seconds
+MAX_SELLING_TIME_WAIT: 1800 # Maximum wait time for final cleanup attempt in seconds
+NUM_PASSES_REQUIRED: 5
+GET_INVENTORY_COUNT: 1000
+  # GET_INVENTORY_COUNT is how many items to get from the inventory at once
+  # NUM_PASSES_REQUIRED is the number of passes that are needed to be bought after the items lister runs
+  # it is always 5 unless you are switching this to a farming case drop account and making armoury pass accounts in a different region
+
+# Schedule Generator Constants
+# -- Optimized Constants and Configurations--
+# -- Runs for approximately 3 minutes and 30 seconds --
+# -- Best model is printed for compatibility reasons, always choose the weighted ensemble when running with 5 splits --
+N_EPOCHS: 50
+MARKET_HASH_NAME_DEFAULT: "Fever Case"
+MAX_SPLITS: 5
+OUTPUT_CHUNK_LENGTH_DEFAULT: 24
+
+# Manual Items Sender Constants
+MANUAL_ITEMS_SENDER_MULTIPLIER: 1 # set to 1 for regular operations or 10000 for testing
+MAIN_ACCOUNT_TRADE_URL: "https://steamcommunity.com/tradeoffer/new/?partner=1597113567&token=zXZIog_y"
+ACCOUNT_INVENTORY_SEMAPHORE_MANUAL_SENDER: 5 # Renamed to avoid duplicate
+
+# Items data updater
+ITEMS_DATA_UPDATER_ACCOUNTS_SEMAPHORE: 5
+
+# price_utils config
+PERCENTAGE_OF_LOWEST_BUY_THRESHOLD: 0.995
+OUTDATED_TIME_SECONDS: 120
+OUTDATED_TIME_SECONDS_MAIN: 20
+
+# Fua threshold calculator config
+threshold_calculator_setup_cost: 1190
+threshold_calculator_batch_passes_cost: 6275
+threshold_calculator_profit_scenario1: 1190
+threshold_calculator_profit_scenario2: 1360
+threshold_calculator_weekly_bonus: 50
+threshold_calculator_farming_hours: 15
+threshold_calculator_simulation_years: 3 # 3 years sim to get actual final value

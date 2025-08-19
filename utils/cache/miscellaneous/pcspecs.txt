@@ -1,0 +1,10 @@
+farming computers specs:
+
+gpu: 4060ti (2 to 4 can be used)
+cpu: 2698v4 * 2
+motherboard: lga 2011-3 dual socket motherboard
+ram: 256gb ram
+ssd: 4tb storage
+monitor: MSI Pro MP223 E2 22 Inch FHD Business Monitor (179)
+cpu cooler: dual air coolers
+case: Lian Li LANCOOL 207 Mid Tower ATX Cabinet White (269)
