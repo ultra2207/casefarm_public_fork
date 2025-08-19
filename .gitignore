@@ -1,0 +1,75 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Cache and executables
+cache/
+.cache/
+utils/cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Tokens and credentials
+*token*.txt
+*.key
+*.pem
+config.yaml
+
+# CSV exports and temporary files
+*.csv
+farmlabs_export.csv
+giftcards.csv
+used_giftcards.csv
+hexogen.txt
+hexogen_remaining.txt
+standard_arb_export.txt
+
+# Site build output
+site/
+
+# Temporary files
+*.txt
+!README.md

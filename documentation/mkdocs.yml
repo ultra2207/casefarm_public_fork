@@ -1,0 +1,63 @@
+site_name: CaseFarm documentation
+site_description: Comprehensive documentation for CaseFarm processes and packages
+use_directory_urls: false  # This will make direct file opening work better
+# Navigation structure
+nav:
+  - Home: index.md
+  - Account Management:
+    - New Account Process: New_Account_Process.md
+    - Existing Account Process: Existing_Account_Process.md
+  - Financial Operations:
+    - Profit Taking: Profit_Taking.md
+  - Product Roadmap:
+    - Upcoming Packages: Upcoming_Packages.md
+
+# Theme configuration
+theme:
+  name: material
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+  icon:
+    logo: material/file-document-outline
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
